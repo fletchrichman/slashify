@@ -52,9 +52,9 @@ class @FeelingCagey
       $(photo.faces).each(->
 
         $('<div class="face"><img src="/assets/slash.png"></div>')
-          .css('top', "#{@top}%")
-          .css('left', "#{@left}%")
-          .css('width', "#{@width}%")
+          .css('top', "#{@top-(@width*0.87/2)}%")
+          .css('left', "#{@left-(@width*0.87/2)}%")
+          .css('width', "#{@width*1.87}%")
           .appendTo(gridElement)
 
       )
