@@ -126,7 +126,7 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
-    omniauth-twitter (0.0.12)
+    omniauth-twitter (1.0.1)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     pg (0.17.1)
@@ -222,7 +222,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
-  omniauth-twitter
+  omniauth-twitter (~> 1.0.0)
   pg
   quiet_assets
   rails (= 4.0.2)
