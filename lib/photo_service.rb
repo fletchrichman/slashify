@@ -11,11 +11,12 @@ class PhotoService
     # Define where we're going to whack this image temporarily.
     # All Instagram images are jpegs for now
     output_file = "tmp/#{photo.id}.jpg"
+    puts output_file
 
     begin
       # Download the image via wget. This is remarkably dubious and will silently fail, hence why this whole thing is wrapped in a try/catch
       # Should definitely be refactored to at least check if we get output to stderr
-      `wget --quiet -O #{output_file} #{p.image_url}`
+      `wget --quiet -O #{output_file} #{photo.photo_url}`
 
       detect_faces(output_file, photo)
     rescue => e
@@ -33,7 +34,7 @@ class PhotoService
 
   def detect_faces(file, photo)
   	
-  	cv_image = OpenCV::CvMat.load(output_file)
+  	cv_image = OpenCV::CvMat.load(file)
 
     @detector.detect_objects(cv_image).each do |region|
       next if region.width < 150 # Smaller faces are more likely to be false-positives and aren't as funny, so skip them
