@@ -12,8 +12,11 @@ gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter', '~> 1.0.0'
+#gem 'omniauth-instagram'
+gem 'httparty'
 gem 'twitter', '~> 5.8.0'
 gem 'koala'
+gem 'instagram'
 gem 'pg'
 gem 'simple_form'
 gem 'thin'
@@ -22,7 +25,6 @@ gem "ruby-opencv", github: "ruby-opencv/ruby-opencv", require: "opencv"
 
 gem "carrierwave"
 gem "pusher"
-gem "instagram"
 
 group :development do
   gem 'better_errors'
