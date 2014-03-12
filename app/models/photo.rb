@@ -2,6 +2,10 @@ class Photo < ActiveRecord::Base
 
   has_many :faces
 
+  def self.all_filtered_for_json
+    self.order("created_at DESC").limit(50).map { |p| p.filtered_for_json }
+  end
+
   def filtered_for_json
     { photo_url: self.photo_url, faces: self.relative_faces }
   end
@@ -22,7 +26,7 @@ class Photo < ActiveRecord::Base
       width_unskewed = ((width / photo_width) * 100).round(2)
       width_skew     = width_unskewed - width_skewed
 
-      left = (((left / photo_width) * 100) + (width_skew / 2)).round(2)
+      left = ((((left-(0.2275*width_skewed))/ photo_width) * 100) + (width_skew / 2)).round(2)
       top  = (((top - (height * 0.1)) / photo_height) * 100).round(2)
 
       {

@@ -12,7 +12,7 @@ class @FeelingCagey
   @preloadCage = (callback) ->
 
     image = new Image()
-    image.src = '/img/slash.png'
+    image.src = '/assets/slash.png'
 
     $(image).on('load', callback)
 
@@ -25,7 +25,7 @@ class @FeelingCagey
 
   @initializePusher: ->
 
-    pusher  = new Pusher(PUSHER_KEY)
+    pusher  = new Pusher('4dde7f554a0557b9efbd')
     channel = pusher.subscribe('slash')
     channel.bind('new_photo', @renderPhoto)
 
@@ -39,7 +39,7 @@ class @FeelingCagey
   @renderPhoto = (photo, append = false) ->
 
     image = new Image()
-    image.src = photo.image_url
+    image.src = photo.photo_url
 
     $(image).on('load', ->
 
@@ -47,11 +47,11 @@ class @FeelingCagey
 
       gridElement = $('<div />').attr('class', 'pure-u-1-5 photo')
 
-      $('<img />').attr('src', photo.image_url).appendTo(gridElement)
+      $('<img />').attr('src', photo.photo_url).appendTo(gridElement)
       
       $(photo.faces).each(->
 
-        $('<div class="face"><img src="/img/slash.png"></div>')
+        $('<div class="face"><img src="/assets/slash.png"></div>')
           .css('top', "#{@top}%")
           .css('left', "#{@left}%")
           .css('width', "#{@width}%")

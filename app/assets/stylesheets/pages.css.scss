@@ -1,3 +1,165 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$barBackgroundColour: white;
+
+* {
+  -webkit-backface-visibility: visible;
+}
+
+body {
+  font: 300 13px "europa", "Europa", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: black;
+}
+
+a {
+  color: #e74c3c;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $barBackgroundColour;
+  text-align: center;
+  line-height: 1;
+  z-index: 10;
+  padding: 16px 0;
+  h1 {
+    margin: 0 0 6px;
+  }
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  margin-top: 77px;
+  text-align: center;
+  .photo {
+    position: relative;
+    overflow: hidden;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    opacity: 0;
+    &.visible {
+      opacity: 1;
+      &:hover {
+        opacity: 1;
+        filter: none;
+        -webkit-filter: grayscale(0);
+      }
+    }
+    > img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 2;
+    }
+    .face {
+      position: absolute;
+      z-index: 3;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -30px;
+  font-size: 24px;
+  color: #333333;
+  text-align: center;
+  z-index: 1;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  .disclaimer,
+  .contact {
+    padding: 8px 12px;
+    background: white;
+  }
+  .disclaimer {
+    font-size: 9px;
+    background: rgba(255, 255, 255, 0.8);
+    &.hidden {
+      opacity: 0;
+    }
+  }
+  .contact {
+    overflow: hidden;
+    .credits {
+      float: left;
+      width: 40%;
+    }
+    .pusher,
+    .gamaroff {
+      display: block;
+      float: left;
+      color: #333333;
+      text-decoration: none;
+      line-height: 17px;
+      vertical-align: middle;
+      font-size: 11px;
+      width: 30%;
+      text-align: left;
+      img {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .pusher {
+      float: right;
+      text-align: right;
+      img {
+        height: 17px;
+      }
+    }
+    .gamaroff {
+      img {
+        height: 14px;
+      }
+      &.mobile {
+        display: none;
+      }
+      &.desktop {
+        display: block;
+      }
+    }
+    @media screen and (max-width: 760px) {
+      padding-top: 6px;
+      .credits,
+      .gamaroff {
+        float: none;
+        width: auto;
+      }
+      .pusher {
+        display: none;
+      }
+      .gamaroff {
+        text-align: center;
+        img {
+          height: 10px;
+          margin-top: 3px;
+        }
+        &.desktop {
+          display: none;
+        }
+        &.mobile {
+          display: block;
+        }
+      }
+    }
+  }
+}

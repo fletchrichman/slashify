@@ -35,6 +35,8 @@ class PhotoService
     if photo.faces.any?
     	Pusher["slash"].trigger("new_photo", photo.filtered_for_json)
     	return true
+   	else
+   		photo.delete
    	end
     return nil
   end
