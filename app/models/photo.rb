@@ -7,7 +7,7 @@ class Photo < ActiveRecord::Base
   end
 
   def filtered_for_json
-    { photo_url: self.photo_url, faces: self.relative_faces }
+    { photo_url: self.photo_url, faces: self.relative_faces, internal_id: self.id}
   end
 
   def relative_faces

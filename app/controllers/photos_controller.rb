@@ -2,11 +2,6 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id]).filtered_for_json
-
-    respond_to do |format|
-      format.html
-      format.js { render json: @photo }
-    end
   end
 
   def index

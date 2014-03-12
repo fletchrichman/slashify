@@ -1,3 +1,7 @@
 .row-fluid
   .span12
-    %img.slashme{src: @photo.photo_url, data: {faces: @photo_json["faces"].to_json}}
+    .photo-location
+      %img{src: @photo[:photo_url]}
+      - @photo[:faces].each do |f|
+        .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%;"}
+          %img{src: "/assets/slash.png"}

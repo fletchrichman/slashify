@@ -1,15 +1,15 @@
-class @FeelingCagey
+class @Slashify
 
   @boot: ->
 
     $(window).on('scroll', @hideFooterOnScroll)
 
-    @preloadCage(=>
+    @preloadImage(=>
       @loadInitialPhotos()
       @initializePusher()
     )
 
-  @preloadCage = (callback) ->
+  @preloadImage = (callback) ->
 
     image = new Image()
     image.src = '/assets/slash.png'
@@ -47,7 +47,7 @@ class @FeelingCagey
 
       gridElement = $('<div />').attr('class', 'pure-u-1-5 photo')
 
-      $('<img />').attr('src', photo.photo_url).appendTo(gridElement)
+      $('<img />').attr('src', photo.photo_url).attr('data-id', photo.internal_id).appendTo(gridElement)
       
       $(photo.faces).each(->
 
@@ -73,4 +73,4 @@ class @FeelingCagey
 
     )
 
-@FeelingCagey.boot()
+@Slashify.boot()
