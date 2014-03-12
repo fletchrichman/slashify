@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ruby-opencv/ruby-opencv.git
+  revision: 4a0b4f1b929e43ca106acfabefd953cffee9c5de
+  specs:
+    ruby-opencv (0.0.12.20140119050230)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -42,6 +48,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -204,6 +213,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   capybara
+  carrierwave
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   email_spec
@@ -220,6 +230,7 @@ DEPENDENCIES
   rails (= 4.0.2)
   rails_layout
   rspec-rails
+  ruby-opencv!
   sass-rails (~> 4.0.0)
   simple_form
   thin
