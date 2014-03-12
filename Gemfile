@@ -21,6 +21,7 @@ gem 'thin'
 gem "ruby-opencv", github: "ruby-opencv/ruby-opencv", require: "opencv"
 
 gem "carrierwave"
+gem "pusher"
 
 group :development do
   gem 'better_errors'

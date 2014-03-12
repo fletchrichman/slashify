@@ -1,10 +1,14 @@
 require "fileutils"
 require "digest"
+require 'pusher'
 
 class PhotoService
 
   def initialize
-  	@detector = OpenCV::CvHaarClassifierCascade::load(File.expand_path(File.dirname(__FILE__) + '/haar.xml'))
+  	@face_detector = OpenCV::CvHaarClassifierCascade::load(File.expand_path(File.dirname(__FILE__) + '/haar.xml'))
+  	@left_eye_detector = OpenCV::CvHaarClassifierCascade::load(File.expand_path(File.dirname(__FILE__) + '/eye_left.xml'))
+  	@right_eye_detector = OpenCV::CvHaarClassifierCascade::load(File.expand_path(File.dirname(__FILE__) + '/eye_right.xml'))
+  	Pusher.url = "http://4dde7f554a0557b9efbd:3b857ea72ed461db0eba@api.pusherapp.com/apps/68498"
   end
 
   def download_and_process(photo)
@@ -28,7 +32,10 @@ class PhotoService
       FileUtils.rm_f(output_file)
     end
 
-    return true if photo.faces.any?
+    if photo.faces.any?
+    	Pusher["slash"].trigger("new_photo", photo.filtered_for_json)
+    	return true
+   	end
     return nil
   end
 
@@ -36,7 +43,7 @@ class PhotoService
   	
   	cv_image = OpenCV::CvMat.load(file)
 
-    @detector.detect_objects(cv_image).each do |region|
+    @face_detector.detect_objects(cv_image).each do |region|
       next if region.width < 150 # Smaller faces are more likely to be false-positives and aren't as funny, so skip them
 
       f = Face.new
