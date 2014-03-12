@@ -107,6 +107,10 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    koala (1.9.0)
+      addressable
+      faraday
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -250,6 +254,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 1.2)
   jquery-rails
+  koala
   omniauth
   omniauth-facebook
   omniauth-twitter (~> 1.0.0)
