@@ -11,6 +11,8 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter', '~> 1.0.0'
+gem 'twitter', '~> 5.8.0'
 gem 'pg'
 gem 'simple_form'
 gem 'thin'
@@ -21,7 +23,7 @@ gem "carrierwave"
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'binding_of_caller'
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
