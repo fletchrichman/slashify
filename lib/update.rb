@@ -1,18 +1,7 @@
-# BIG FAT DISCLAIMER OF DREAMS:
-# This code isn't very nice. It was written at speed and this whole thing was built in about half a day.
-# Some of it doesn't make sense and should be taken with a pinch of salt. It's an app that photomanipulates Nicolas Cage, for god's sake. 
-require File.expand_path(File.dirname(__FILE__) + '/boot')
-require "fileutils"
-require "digest"
-
-# Start afresh
-Photo.destroy_all 
-
-# We've not got any media yet, so we want to get the latest media we can find with no minimum ID
-min_id = 0
+require "process_photo"
 
 # Set up the Haar Classifier using haar.xml. fullfrontal_alt.xml appears to work best from the default Haar cascades that are supplied with OpenCV.
-detector = OpenCV::CvHaarClassifierCascade::load(File.expand_path(File.dirname(__FILE__) + '/haar.xml'))
+
 
 # I will loop you until the end of time
 #  - Beyonce, 2013
