@@ -12,7 +12,7 @@ class @Slashify
   @preloadImage = (callback) ->
 
     image = new Image()
-    image.src = '/assets/slash.png'
+    image.src = '<%= image_path("slash.png")%>'
 
     $(image).on('load', callback)
 
