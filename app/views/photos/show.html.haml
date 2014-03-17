@@ -4,7 +4,7 @@
       %img{src: @photo[:photo_url]}
       - @photo[:faces].each do |f|
         .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%;"}
-          %img{src: "/assets/slash.png"}
+          = image_tag "slash.png"
     =link_to "Share on Facebook", '/auth/facebook', :class => 'btn btn-facebook'
     =link_to "Share on Twitter", '/auth/twitter', :class => 'btn btn-twitter'
 
