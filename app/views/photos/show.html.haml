@@ -5,3 +5,9 @@
       - @photo[:faces].each do |f|
         .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%;"}
           %img{src: "/assets/slash.png"}
+  %button.btn.btn-facebook
+    =link_to "Share on Facebook", '/auth/facebook', photo_id: params[:id]
+
+  %button.btn.btn-twitter
+    =link_to "Share on Twitter", '/auth/twitter', photo_id: params[:id]
+

@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id]).filtered_for_json
+    session[:photo_id] = params[:id]
   end
 
   def index
