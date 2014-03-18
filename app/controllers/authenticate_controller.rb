@@ -13,7 +13,7 @@ class AuthenticateController < ApplicationController
       facebook.put_picture(photo.photo_url, {:message => "I Slashified myself with PivotDesk!"})
     elsif authentication.provider == 'twitter'
       twitter = TwitterClient.new(authentication)
-      twitter.client.update_with_media("I Slashified myself with @PivotDesk!", photo.photo_url)
+      twitter.tweet_with_image(photo)
       redirect_to photo_path(photo_id)
     else
       redirect_to authenticate_index_path, :notice => 'Unknown Authentication'

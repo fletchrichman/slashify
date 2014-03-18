@@ -14,4 +14,14 @@ class TwitterClient
     @client
   end
 
+  def tweet_with_image(photo)
+    begin
+    uri = URI.parse(photo.photo_url)
+    media = uri.open
+    media.instance_eval("def original_filename; '#{File.basename(uri.path)}'; end")
+    @client.update_with_media("Hi from @PivotDesk", media)
+      rescue => e
+    end
+  end
+
 end 

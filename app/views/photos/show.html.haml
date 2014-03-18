@@ -1,10 +1,15 @@
 .row-fluid
-  .span12
+  .col-md-2
+    / %br/
+    / =link_to "Share on Facebook", '/auth/facebook', :class => 'btn btn-facebook'
+    / %br/
+    / %br/
+    / =link_to "Share on Twitter", '/auth/twitter', :class => 'btn btn-twitter'
+  .col-md-5
     .photo-location{style: "width: #{@photo.width}"}
-      %img{src: @photo[:photo_url]}
-      - @photo[:faces].each do |f|
+      %img{src: @photo.photo_url}
+      - @photo_with_faces[:faces].each do |f|
         .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%; position:absolute;"}
           = image_tag "slash.png"
-    =link_to "Share on Facebook", '/auth/facebook', :class => 'btn btn-facebook'
-    =link_to "Share on Twitter", '/auth/twitter', :class => 'btn btn-twitter'
+
 
