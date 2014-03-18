@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params) 
-    redirect_to root_url
+    redirect_to photo_path(@photo)
   end
 
   def index
