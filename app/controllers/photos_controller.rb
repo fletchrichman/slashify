@@ -6,7 +6,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(params[:photo])
+    @photo = Photo.create(photo_params) 
+    redirect_to root_url
   end
 
   def index
@@ -15,5 +16,12 @@ class PhotosController < ApplicationController
     respond_to do |format|
       format.json {render json: @photos}
     end
+  end
+
+
+  private
+
+  def photo_params
+    params.require(:photo).permit(:uploaded_photo, :width, :height, :user_id)
   end
 end

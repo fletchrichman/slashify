@@ -4,10 +4,10 @@
 
 .row-fluid
   .col-md-2.col-md-offset-5
-    %a.twitter.popup.btn.btn-twitter{href: "http://twitter.com/share?text=You can Slashify yourself thanks to @PivotDesk! #slashselfy #{request.original_url}"} Give a Lil' Twitter Love
+    %a.twitter.popup.btn.btn-twitter{href: "http://twitter.com/share?text=You can Slashify yourself thanks to @PivotDesk! #{request.original_url}"} Give a Lil' Twitter Love
 .row-fluid
   .col-md-2.col-md-offset-5
-    = form_for @photo do |f|
+    = form_for @photo, :html => {:multipart => true} do |f|
       = f.file_field :uploaded_photo
       = f.submit "Upload your own photo!"
 
