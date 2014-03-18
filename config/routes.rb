@@ -4,6 +4,7 @@ Slashify::Application.routes.draw do
   get "authenticate/create"
 
   get "photos", to: 'photos#index'
+  post "photos", to: 'photos#create'
   get '/photos/:id', to: 'photos#show'
 
   root to: "pages#home"

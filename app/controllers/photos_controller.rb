@@ -5,6 +5,10 @@ class PhotosController < ApplicationController
     session[:photo_id] = params[:id]
   end
 
+  def create
+    @photo = Photo.new(params[:photo])
+  end
+
   def index
     @photos = Photo.all_filtered_for_json
 

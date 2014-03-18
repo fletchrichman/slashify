@@ -1,9 +1,9 @@
 .row-fluid
   .span12
-    .photo-location
+    .photo-location{style: "width: #{@photo.width}"}
       %img{src: @photo[:photo_url]}
       - @photo[:faces].each do |f|
-        .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%;"}
+        .face{style: "top: #{f[:top]-(f[:width]*0.87/2)}%; left: #{f[:left]-(f[:width]*0.87/2)}%; width: #{f[:width]*1.87}%; position:absolute;"}
           = image_tag "slash.png"
     =link_to "Share on Facebook", '/auth/facebook', :class => 'btn btn-facebook'
     =link_to "Share on Twitter", '/auth/twitter', :class => 'btn btn-twitter'

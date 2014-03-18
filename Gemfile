@@ -23,8 +23,12 @@ gem 'thin'
 
 gem "ruby-opencv", require: "opencv"
 
-gem "carrierwave"
+gem "fog"
+gem "carrierwave" #upload of images + compositing
+gem "carrierwave_direct"
 gem "pusher"
+gem 'mini_magick' #handles image manipulation
+gem 'resque'
 
 group :development do
   gem 'better_errors'

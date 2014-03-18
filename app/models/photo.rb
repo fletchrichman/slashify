@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
 
   has_many :faces
+  mount_uploader :uploaded_photo, PhotoUploader
 
   def self.all_filtered_for_json
     self.order("created_at DESC").limit(50).map { |p| p.filtered_for_json }
