@@ -19,7 +19,7 @@ class TwitterClient
     uri = URI.parse(photo.photo_url)
     media = uri.open
     media.instance_eval("def original_filename; '#{File.basename(uri.path)}'; end")
-    @client.update_with_media("Hi from @PivotDesk", media)
+    @client.update_with_media("I slashified myself with @PivotDesk! #{request.original_url}", media)
       rescue => e
     end
   end

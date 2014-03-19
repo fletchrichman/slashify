@@ -10,7 +10,7 @@ class AuthenticateController < ApplicationController
     photo = Photo.find(session[:photo_id])
     if authentication.provider == 'facebook'
       facebook = Koala::Facebook::API.new(authentication.token)
-      facebook.put_picture(photo.photo_url, {:message => "I Slashified myself with PivotDesk!"})
+      facebook.put_picture(photo.photo_url, {:message => "I Slashified myself with PivotDesk! #{request.original_url}"})
     elsif authentication.provider == 'twitter'
       twitter = TwitterClient.new(authentication)
       twitter.tweet_with_image(photo)
