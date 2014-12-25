@@ -120,7 +120,7 @@ Contributing
 
 If you make improvements to this application, please share with others.
 
--   Fork the project on GitHub.
+-   Fork the project on Github.
 -   Make your feature addition or bug fix.
 -   Commit with Git.
 -   Send the author a pull request.
